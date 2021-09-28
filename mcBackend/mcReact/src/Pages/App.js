@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import Header from '../Components/Header';
 import Body from '../Components/Body';
+import Logo from '../Components/Logo';
 
 function App() {
   const [data, setData] = useState("")
@@ -14,6 +15,7 @@ function App() {
 
   return (
     <div className="Home">
+      <Logo/>
       <Header/>
       <Body/>
       <p>{data}</p>
