@@ -1,9 +1,8 @@
 const express = require('express'); //Line 1
 const cors = require('cors');
 const multer = require('multer');
-const path = require('path');
 const fs = require('fs');
-const { GridFsStorage } = require('multer-gridfs-storage');
+const userP = require('./userPass.json');
 const { MongoClient } = require('mongodb');
 const { GridFSBucket } = require('mongodb');
 const { assert } = require('console');
@@ -16,7 +15,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended : true }));
 app.use(cors());
 
-const uri = "mongodb+srv://KyleFreeman:WhHkK_EZdrC_W5*@micro-organisms.1kisu.mongodb.net/micro-organisms?retryWrites=true&w=majority"
+const userPass = userP['username'] + ":" + userP['password'];
+
+const uri = "mongodb+srv://" + userPass + "@micro-organisms.1kisu.mongodb.net/micro-organisms?retryWrites=true&w=majority"
 
 const client = new MongoClient(uri);
 

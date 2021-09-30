@@ -1,9 +1,10 @@
 import React from 'react'
+import "./Header.css";
 
 const Header = () => {
     return (
         <div className="header">
-            <h1>Micro-Organism Classifier</h1>
+            <h1 className="name">Micro-Organism Classifier</h1>
         </div>
     )
 }

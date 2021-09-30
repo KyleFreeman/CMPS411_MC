@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './UploadBtn.css'
 
 const UploadBtn = () => {
     const [selectedFile, setSelectedFile] = useState(null);
@@ -18,8 +19,8 @@ const UploadBtn = () => {
     }
 
     return (
-        <div>
-           <input type="file" id="myFile" name="file" onChange={(e) => setSelectedFile(e.target.files[0])}/>
+        <div className="uploadBtn">
+           <input type="file" id="myFile" name="file" onChange={(e) => setSelectedFile(e.target.files[0])} multiple accept=".jpg,.jpeg,.png"/>
            <button onClick={submitForm}>Submit</button>
         </div>
     )

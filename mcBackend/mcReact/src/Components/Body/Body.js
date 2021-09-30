@@ -1,10 +1,11 @@
 import React from 'react'
 import UploadBtn from '../Buttons/UploadBtn'
+import './Body.css'
 
 const Body = () => {
     return (
-        <div>
-            <h3>Upload Micro-Organism</h3>
+        <div className="Body">
+            <h3 className="uploadLabel">Upload Micro-Organism</h3>
             <UploadBtn />
         </div>
     )

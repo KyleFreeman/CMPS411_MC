@@ -347,4 +347,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+#User:Pass
+./mcBackend/userPass.json
+
 # End of https://www.toptal.com/developers/gitignore/api/react,node,windows,macos,visualstudiocode,python

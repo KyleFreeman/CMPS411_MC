@@ -1,0 +1,16 @@
+.BodyMain {
+    background-image: url("../../images/background_plain.png");
+    width: 1920px;
+    height: 1080px;
+    margin-top: 0px;
+    display: block;
+    text-align: center;
+}
+
+.NavBar {
+    width: 100%;
+    height: inherit;
+    border-bottom: 4px solid black;
+    margin-bottom: 0px;
+    background-image: linear-gradient(to right, black, #2c814d);
+}
