@@ -1,6 +1,7 @@
 const express = require('express'); //Line 1
 const cors = require('cors');
 const multer = require('multer');
+const { spawn } = require("child_process");
 const fs = require('fs');
 const userP = require('./userPass.json');
 const { MongoClient } = require('mongodb');
@@ -55,10 +56,24 @@ const upload = multer({storage: storage})
 // });
 
 app.post("/upload", upload.single('file'), (req, res) => {
-  fs.createReadStream('./public/' + req.file.originalname).pipe(bucket.openUploadStream(req.file.originalname)).on('error', function(error) {assert.ifError(error);});
+  var classified;
+  var args = './CVClassifier/simple_test_model.py ' + './public/' + String(req.file.originalname) + " ~/Development/Github/dataset/EMDS5-Original/ --train";
+
+  const python = spawn('python', [args]);
+  python.stdout.on('data', function (data) {
+    console.log("Pipe data from script...");
+    classified = data.toString();
+    console.log(classified);
+  });
+
+  python.on('close', (code) => {
+    console.log(`Child Process closed with code ${code}`);
+    res.send("Done");
+  });
+
+  // fs.createReadStream('./public/' + req.file.originalname).pipe(bucket.openUploadStream(req.file.originalname)).on('error', function(error) {assert.ifError(error);});
   
-  console.log(req.file.originalname);
-  res.send("Done");
+  // console.log(req.file.originalname);
 });
 
 app.get("/download/:name", (req, res) => {
