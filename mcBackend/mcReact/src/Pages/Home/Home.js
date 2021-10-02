@@ -1,11 +1,10 @@
-import './App.css';
-import Body from '../../Components/Body/Body';
+import './Home.css';
 
-function App() {
+function Home() {
   return (
     <div className="Main">
       <div className="BodyMain">
-        <Body/>
+        <p>This is the body of Home.</p>
       </div>
 
       {/* <Loading/> */}
@@ -13,4 +12,6 @@ function App() {
   );
 }
 
-export default App;
+export default Home;
+
+

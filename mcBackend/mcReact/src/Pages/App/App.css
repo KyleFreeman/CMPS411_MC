@@ -6,11 +6,3 @@
     display: block;
     text-align: center;
 }
-
-.NavBar {
-    width: 100%;
-    height: inherit;
-    border-bottom: 4px solid black;
-    margin-bottom: 0px;
-    background-image: linear-gradient(to right, black, #2c814d);
-}

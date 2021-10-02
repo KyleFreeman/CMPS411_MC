@@ -1,4 +1,5 @@
 import React from 'react'
+import DownloadBtn from '../Buttons/DownloadBtn'
 import UploadBtn from '../Buttons/UploadBtn'
 import './Body.css'
 
@@ -7,6 +8,8 @@ const Body = () => {
         <div className="Body">
             <h3 className="uploadLabel">Upload Micro-Organism</h3>
             <UploadBtn />
+            <br/>
+            <DownloadBtn/>
         </div>
     )
 }

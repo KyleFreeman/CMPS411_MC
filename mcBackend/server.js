@@ -47,22 +47,24 @@ const storage = multer.diskStorage({
 
 const upload = multer({storage: storage})
 
-app.post("/home", upload.single('file'), (req, res) => {
-    if (!req.file) {
-        res.sendStatus(500);
-    }
-    console.log(req.file);
-});
+// app.post("/home", upload.single('file'), (req, res) => {
+//     if (!req.file) {
+//         res.sendStatus(500);
+//     }
+//     console.log(req.file);
+// });
 
-app.post("/upload", (req, res) => {
-  fs.createReadStream('./public/mando.jpeg').pipe(bucket.openUploadStream('mando.jpeg')).on('error', function(error) {assert.ifError(error);});
+app.post("/upload", upload.single('file'), (req, res) => {
+  fs.createReadStream('./public/' + req.file.originalname).pipe(bucket.openUploadStream(req.file.originalname)).on('error', function(error) {assert.ifError(error);});
   
-  console.log('mando.jpeg');
+  console.log(req.file.originalname);
   res.send("Done");
 });
 
-app.get("/download", (req, res) => {
-  bucket.openDownloadStreamByName('mando.jpeg').pipe(fs.createWriteStream('./public/mandodb.jpeg')).on('error', function(error) {
+app.get("/download/:name", (req, res) => {
+  let fileName = req.params.name;
+  console.log(fileName);
+  bucket.openDownloadStreamByName(fileName).pipe(fs.createWriteStream('./public/' + fileName)).on('error', function(error) {
       assert.ifError(error);
       console.log("error");
     }).on('finish', function() {

@@ -1,11 +1,10 @@
-import './App.css';
-import Body from '../../Components/Body/Body';
+import './Results.css';
 
-function App() {
+function Results() {
   return (
     <div className="Main">
       <div className="BodyMain">
-        <Body/>
+        <p>This is the body of Results.</p>
       </div>
 
       {/* <Loading/> */}
@@ -13,4 +12,4 @@ function App() {
   );
 }
 
-export default App;
+export default Results;

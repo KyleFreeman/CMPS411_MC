@@ -1,11 +1,10 @@
-import './App.css';
-import Body from '../../Components/Body/Body';
+import './About.css';
 
-function App() {
+function About() {
   return (
     <div className="Main">
       <div className="BodyMain">
-        <Body/>
+        <p>This is the body of About.</p>
       </div>
 
       {/* <Loading/> */}
@@ -13,4 +12,4 @@ function App() {
   );
 }
 
-export default App;
+export default About;

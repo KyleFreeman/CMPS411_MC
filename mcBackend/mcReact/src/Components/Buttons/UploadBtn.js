@@ -8,7 +8,7 @@ const UploadBtn = () => {
         const data = new FormData();
         data.append('file', selectedFile);
 
-        fetch("http://localhost:3001/home",
+        fetch("http://localhost:3001/upload",
             {
                 body: data,
                 method: "POST"
