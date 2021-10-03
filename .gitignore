@@ -350,4 +350,9 @@ $RECYCLE.BIN/
 #User:Pass
 ./mcBackend/userPass.json
 
+#ML Weights
+./mcBackend/CVClassifier/checkpoint
+./mcBackend/CVClassifier/model_weights.index
+./mcBackend/CVClassifier/model_weights.data*
+
 # End of https://www.toptal.com/developers/gitignore/api/react,node,windows,macos,visualstudiocode,python

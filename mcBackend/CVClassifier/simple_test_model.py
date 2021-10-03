@@ -83,7 +83,8 @@ if args.train:
     val_ds = val_ds.map(lambda x, y: (tf.image.resize(x, size), y))
 
     model.fit(train_ds, batch_size=64, epochs=2, verbose=1, validation_data=val_ds)
-    model.save_weights('model_weights')
+    model.save_weights('./CVClassifier/model_weights')
+    print("Model Trained!")
 
 file_name = os.path.basename(u_filepath)
 user_upload = tf.keras.preprocessing.image.load_img(u_filepath)
@@ -91,7 +92,7 @@ input_arr = tf.keras.preprocessing.image.img_to_array(user_upload)
 input_arr = np.array([tf.image.resize(input_arr, (256, 256))])
 
 if args.test:
-    model.load_weights('model_weights')
+    model.load_weights('./CVClassifier/model_weights')
 
     y_pred = model.predict(input_arr)
 

@@ -57,13 +57,20 @@ const upload = multer({storage: storage})
 
 app.post("/upload", upload.single('file'), (req, res) => {
   var classified;
-  var args = './CVClassifier/simple_test_model.py ' + './public/' + String(req.file.originalname) + " ~/Development/Github/dataset/EMDS5-Original/ --train";
+  var script = './CVClassifier/simple_test_model.py';
+  var scriptImg = "./public/" + String(req.file.originalname);
+  var dataset = '../../dataset/EMDS5-Original'; 
+  var train = '--test';
 
-  const python = spawn('python', [args]);
+  const python = spawn('python3', [script, scriptImg, dataset, train]);
   python.stdout.on('data', function (data) {
     console.log("Pipe data from script...");
     classified = data.toString();
     console.log(classified);
+  });
+
+  python.stderr.on('data', (data) => {
+    console.error(`stderr: ${data}`);
   });
 
   python.on('close', (code) => {
