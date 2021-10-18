@@ -9,7 +9,7 @@ const Body = () => {
             <h3 className="uploadLabel">Upload Micro-Organism</h3>
             <UploadBtn />
             <br/>
-            <DownloadBtn/>
+            {/* <DownloadBtn/> */}
         </div>
     )
 }

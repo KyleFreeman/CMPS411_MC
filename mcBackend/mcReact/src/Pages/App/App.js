@@ -7,8 +7,6 @@ function App() {
       <div className="BodyMain">
         <Body/>
       </div>
-
-      {/* <Loading/> */}
     </div>
   );
 }

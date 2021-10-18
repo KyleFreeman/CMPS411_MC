@@ -67,6 +67,7 @@ app.post("/upload", upload.single('file'), (req, res) => {
     console.log("Pipe data from script...");
     classified = data.toString();
     console.log(classified);
+    res.send(classified);
   });
 
   python.stderr.on('data', (data) => {
@@ -75,7 +76,7 @@ app.post("/upload", upload.single('file'), (req, res) => {
 
   python.on('close', (code) => {
     console.log(`Child Process closed with code ${code}`);
-    res.send("Done");
+    console.log("Done");
   });
 
   // fs.createReadStream('./public/' + req.file.originalname).pipe(bucket.openUploadStream(req.file.originalname)).on('error', function(error) {assert.ifError(error);});

@@ -1,7 +1,12 @@
 .lion {
     height: 200px;
     width: 180px;
-    position: fixed;
+}
+.lionDiv {
+    height: 200px;
+    width: 180px;
+    position: relative;
     left: calc(50% - 90px);
     top: 275px;
+    z-index: 100;
 }

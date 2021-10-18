@@ -13,8 +13,13 @@ const UploadBtn = () => {
                 body: data,
                 method: "POST"
             })
-        .then((res) => {
-            console.log(res.status);
+        .then((res) => res.text())
+        .then((data) => {
+            let classify = data;
+            let output = document.getElementById("classify");
+            console.log(classify);
+            output.innerHTML = classify;
+            output.style.display = "block";
         })
     }
 
@@ -22,6 +27,7 @@ const UploadBtn = () => {
         <div className="uploadBtn">
            <input type="file" id="myFile" name="file" onChange={(e) => setSelectedFile(e.target.files[0])} multiple accept=".jpg,.jpeg,.png"/>
            <button onClick={submitForm}>Submit</button>
+           <p className="classify" id="classify"></p>
         </div>
     )
 }

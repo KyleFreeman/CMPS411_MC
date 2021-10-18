@@ -1,6 +1,5 @@
 import React from 'react'
 import "./NavBar.css";
-import Lion from "../Header/Lion"
 import { Link } from 'react-router-dom';
 
 const NavBar = () => {
@@ -13,7 +12,6 @@ const NavBar = () => {
                 <li>
                     <Link to="/Upload">Upload</Link>
                 </li>
-                <Lion/>
                 <li>
                     <Link to="/Gallery">Gallery</Link>
                 </li>
